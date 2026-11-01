@@ -1,9 +1,9 @@
 import './sources.css';
-import { Source } from '../../types/newsApi';
+import { SourceListItem } from '../../types/newsApi';
 import { getElement } from '../../utils/dom';
 
 class Sources {
-    public draw(data: Source[]): void {
+    public draw(data: SourceListItem[]): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = getElement<HTMLTemplateElement>('#sourceItemTemp');
 

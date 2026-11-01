@@ -34,3 +34,5 @@ export interface SourcesResponse {
     status: string;
     sources: Source[];
 }
+
+export type SourceListItem = Pick<Source, 'id' | 'name'>;
