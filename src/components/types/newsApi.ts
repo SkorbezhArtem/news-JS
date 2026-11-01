@@ -1,3 +1,5 @@
+import { Category } from './enums';
+
 export interface ArticleSource {
     id: string | null;
     name: string;
@@ -25,7 +27,7 @@ export interface Source {
     name: string;
     description: string;
     url: string;
-    category: string;
+    category: Category;
     language: string;
     country: string;
 }
@@ -35,4 +37,4 @@ export interface SourcesResponse {
     sources: Source[];
 }
 
-export type SourceListItem = Pick<Source, 'id' | 'name'>;
+export type SourceListItem = Pick<Source, 'id' | 'name' | 'category' | 'country'>;
