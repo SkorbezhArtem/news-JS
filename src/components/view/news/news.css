@@ -1,3 +1,12 @@
+.news__heading {
+    margin: 0 0 1rem;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+}
+
+.news__heading[hidden] {
+    display: none;
+}
+
 .news__item {
     display: flex;
     flex-direction: column;
