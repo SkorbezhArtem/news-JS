@@ -1,0 +1,51 @@
+import './news.css';
+import { Article } from '../../types/newsApi';
+import { getElement } from '../../utils/dom';
+
+class News {
+    public draw(data: Readonly<Article>[]): void {
+        const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+        const container = getElement('.news');
+
+        if (news.length === 0) {
+            container.innerHTML = '';
+            const empty = document.createElement('p');
+            empty.className = 'news__empty';
+            empty.textContent = 'This source has no articles right now. Try another one.';
+            container.appendChild(empty);
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        const newsItemTemp = getElement<HTMLTemplateElement>('#newsItemTemp');
+
+        news.forEach((item, idx) => {
+            const newsClone = document.importNode(newsItemTemp.content, true);
+
+            if (idx % 2) getElement('.news__item', newsClone).classList.add('alt');
+
+            const photo = getElement<HTMLElement>('.news__meta-photo', newsClone);
+            if (item.urlToImage) {
+                photo.style.backgroundImage = `url(${item.urlToImage})`;
+            }
+            getElement('.news__meta-author', newsClone).textContent = item.author || item.source.name;
+            getElement('.news__meta-date', newsClone).textContent = item.publishedAt
+                .slice(0, 10)
+                .split('-')
+                .reverse()
+                .join('-');
+
+            getElement('.news__description-title', newsClone).textContent = item.title;
+            getElement('.news__description-source', newsClone).textContent = item.source.name;
+            getElement('.news__description-content', newsClone).textContent = item.description;
+            getElement('.news__read-more a', newsClone).setAttribute('href', item.url);
+
+            fragment.append(newsClone);
+        });
+
+        container.innerHTML = '';
+        container.appendChild(fragment);
+    }
+}
+
+export default News;

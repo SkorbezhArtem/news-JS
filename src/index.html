@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -7,22 +7,65 @@
         <title>NewsPortal</title>
     </head>
     <body>
-        <header>
-            <h1>News Portal</h1>
+        <header class="header">
+            <h1 class="header__title">News <span>Portal</span></h1>
         </header>
         <main>
-            <div class="sources buttons"></div>
+            <section class="panel" aria-label="News sources">
+                <div class="panel__bar">
+                    <input
+                        class="panel__search"
+                        type="search"
+                        placeholder="Search sources..."
+                        aria-label="Search sources"
+                        autocomplete="off"
+                    />
+                    <span class="panel__count" aria-live="polite"></span>
+                </div>
+                <div class="panel__chips"></div>
+                <div class="sources buttons"></div>
+            </section>
+            <h2 class="news__heading" hidden></h2>
             <div class="news"></div>
         </main>
-        <footer>
-            <p class="copyright">
-                Copyright <a href="https://newsapi.org">NewsAPI</a>
-            </p>
+        <footer class="footer">
+            <div class="footer__inner">
+                <a
+                    class="footer__github"
+                    href="https://github.com/SkorbezhArtem"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
+                        <path
+                            fill="currentColor"
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                        />
+                    </svg>
+                    <span>SkorbezhArtem</span>
+                </a>
+                <a
+                    class="footer__logo"
+                    href="https://rs.school/courses/javascript"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src="https://rs.school/_next/static/media/rss-logo.c19ce1b4.svg" alt="RS School" height="36" />
+                </a>
+                <p class="footer__copy">
+                    © <span class="footer__year">2026</span> · Powered by
+                    <a href="https://newsapi.org" target="_blank" rel="noopener noreferrer">NewsAPI</a>
+                </p>
+            </div>
         </footer>
 
         <template id="sourceItemTemp">
-            <div class="source__item">
-                <span class="source__item-name"></span>
+            <div class="source">
+                <button type="button" class="source__item">
+                    <span class="source__item-name"></span>
+                    <span class="source__item-meta"></span>
+                </button>
+                <button type="button" class="source__pin" aria-pressed="false">★</button>
             </div>
         </template>
 
