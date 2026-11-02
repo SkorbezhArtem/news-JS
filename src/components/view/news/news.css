@@ -140,6 +140,17 @@
     left: 0%;
 }
 
+.news__empty {
+    grid-column: 1 / -1;
+    margin: 2rem auto;
+    padding: 1.5rem 1rem;
+    max-width: 32rem;
+    text-align: center;
+    color: var(--muted);
+    background: var(--surface);
+    border-radius: 12px;
+}
+
 @media (min-width: 640px) {
     .news__item {
         flex-direction: row;
