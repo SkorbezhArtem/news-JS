@@ -5,6 +5,16 @@ import { getElement } from '../../utils/dom';
 class News {
     public draw(data: Readonly<Article>[]): void {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+        const container = getElement('.news');
+
+        if (news.length === 0) {
+            container.innerHTML = '';
+            const empty = document.createElement('p');
+            empty.className = 'news__empty';
+            empty.textContent = 'This source has no articles right now. Try another one.';
+            container.appendChild(empty);
+            return;
+        }
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp = getElement<HTMLTemplateElement>('#newsItemTemp');
@@ -33,8 +43,8 @@ class News {
             fragment.append(newsClone);
         });
 
-        getElement('.news').innerHTML = '';
-        getElement('.news').appendChild(fragment);
+        container.innerHTML = '';
+        container.appendChild(fragment);
     }
 }
 
