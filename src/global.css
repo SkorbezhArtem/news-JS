@@ -106,7 +106,9 @@ main {
     gap: 0.5rem;
     color: var(--muted);
     text-decoration: none;
-    transition: color 0.2s, transform 0.2s;
+    transition:
+        color 0.2s,
+        transform 0.2s;
 }
 
 .footer__github:hover {
@@ -119,7 +121,9 @@ main {
     padding: 6px 12px;
     background: #fff;
     border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
 .footer__logo:hover {
