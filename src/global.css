@@ -13,6 +13,32 @@
     box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgb(154 157 170 / 35%);
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+    background-clip: content-box;
+}
+
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
