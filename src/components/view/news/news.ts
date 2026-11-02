@@ -14,9 +14,10 @@ class News {
 
             if (idx % 2) getElement('.news__item', newsClone).classList.add('alt');
 
-            getElement<HTMLElement>('.news__meta-photo', newsClone).style.backgroundImage = `url(${
-                item.urlToImage || 'img/news_placeholder.jpg'
-            })`;
+            const photo = getElement<HTMLElement>('.news__meta-photo', newsClone);
+            if (item.urlToImage) {
+                photo.style.backgroundImage = `url(${item.urlToImage})`;
+            }
             getElement('.news__meta-author', newsClone).textContent = item.author || item.source.name;
             getElement('.news__meta-date', newsClone).textContent = item.publishedAt
                 .slice(0, 10)
